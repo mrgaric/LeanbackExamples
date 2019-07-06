@@ -1,3 +1,5 @@
 <resources>
-
+    <color name="search_opaque">#fec36b</color>
+    <color name="search_opaque_bright">#97FE6B</color>
+    <color name="search_opaque_icon">#6B72FE</color>
 </resources>
