@@ -3,4 +3,11 @@
 
     <style name="AppTheme" parent="@style/Theme.Leanback" />
 
+    <style name="BrowseCustomTitleTheme" parent="Leanback.CustomTitle" />
+
+    <style name="Leanback.CustomTitle" parent="@style/Theme.Leanback.Browse">
+        <item name="browseTitleViewLayout">@layout/title_view</item>
+        <item name="browseRowsMarginTop">60dp</item>
+    </style>
+
 </resources>

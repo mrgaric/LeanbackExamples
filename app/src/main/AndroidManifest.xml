@@ -17,7 +17,8 @@
         android:logo="@drawable/app_icon_your_company"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="fm.finch.tv_test_project.browse.MainActivity">
+        <activity android:name=".browse.MainActivity"
+            android:theme="@style/BrowseCustomTitleTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
