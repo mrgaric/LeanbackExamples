@@ -3,9 +3,11 @@ package fm.finch.tv_test_project.browse
 import android.os.Bundle
 import androidx.leanback.app.BrowseSupportFragment
 import androidx.leanback.widget.ArrayObjectAdapter
+import androidx.leanback.widget.DividerRow
 import androidx.leanback.widget.HeaderItem
 import androidx.leanback.widget.ListRow
 import androidx.leanback.widget.ListRowPresenter
+import androidx.leanback.widget.SectionRow
 
 
 class MainFragment : BrowseSupportFragment() {
@@ -34,8 +36,11 @@ class MainFragment : BrowseSupportFragment() {
         val thirdHeader = HeaderItem("Заголовок 3")
 
         browseAdapter.add(ListRow(firstHeader, rowsAdapter))
+        browseAdapter.add(DividerRow())
         browseAdapter.add(ListRow(secondHeader, rowsAdapter))
+        browseAdapter.add(DividerRow())
         browseAdapter.add(ListRow(thirdHeader, rowsAdapter))
+        browseAdapter.add(SectionRow("Подзаголовок 1"))
 
         adapter = browseAdapter
 
