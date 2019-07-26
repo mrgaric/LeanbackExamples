@@ -27,9 +27,9 @@ class PageRowsFragment : RowsSupportFragment() {
 
         val commonHeader = HeaderItem(headerTitle)
 
-        rowsAdapter.add("Элемент 1")
-        rowsAdapter.add("Элемент 2")
-        rowsAdapter.add("Элемент 3")
+        rowsAdapter.add(TextItem("Элемент 1"))
+        rowsAdapter.add(TextItem("Элемент 2"))
+        rowsAdapter.add(TextItem("Элемент 3"))
 
         outerAdapter.add(ListRow(commonHeader, rowsAdapter))
         outerAdapter.add(ListRow(commonHeader, rowsAdapter))

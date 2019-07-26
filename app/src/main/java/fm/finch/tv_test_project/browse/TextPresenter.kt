@@ -11,7 +11,7 @@ import androidx.leanback.widget.Presenter
 class TextPresenter : Presenter() {
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
         val view = TextView(parent.context)
-        view.layoutParams = ViewGroup.LayoutParams(300, 200)
+        view.layoutParams = ViewGroup.LayoutParams(600, 400)
         view.isFocusable = true
         view.isFocusableInTouchMode = true
         view.setBackgroundColor(
@@ -23,13 +23,13 @@ class TextPresenter : Presenter() {
         view.gravity = Gravity.CENTER
         view.setTextColor(Color.BLACK)
 
-        return Presenter.ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, item: Any) {
         val textView = viewHolder.view as TextView
-        val str = item as String
-        textView.text = str
+        val textItem = item as TextItem
+        textView.text = textItem.text
     }
 
     override fun onUnbindViewHolder(viewHolder: ViewHolder) {
