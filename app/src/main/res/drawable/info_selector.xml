@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <layer-list>
+            <item android:drawable="@drawable/text_background" />
+            <item android:gravity="bottom">
+                <shape android:shape="rectangle">
+                    <size android:height="2dp"/>
+                    <solid android:color="#FFFF"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+</selector>

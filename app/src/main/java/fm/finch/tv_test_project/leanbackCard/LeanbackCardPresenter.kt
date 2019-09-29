@@ -1,6 +1,7 @@
 package fm.finch.tv_test_project.leanbackCard
 
 import android.graphics.drawable.Drawable
+import android.support.v17.leanback.widget.BaseCardView
 import android.support.v17.leanback.widget.ImageCardView
 import android.support.v17.leanback.widget.Presenter
 import android.view.ContextThemeWrapper
@@ -32,6 +33,8 @@ class LeanbackCardPresenter : Presenter() {
 							context.getDimensionPixelSizeRes(R.dimen.card_width),
 							context.getDimensionPixelSizeRes(R.dimen.card_height)
 						)
+
+						cardType = BaseCardView.CARD_TYPE_INFO_OVER
 					}
 			}
 

@@ -13,7 +13,7 @@ class MainFragment : RowsSupportFragment() {
 
 	override fun onActivityCreated(savedInstanceState: Bundle?) {
 		super.onActivityCreated(savedInstanceState)
-		initViewAsCardPresenter(savedInstanceState)
+		initViewAsLeanbackCardPresenter(savedInstanceState)
 		setOnItemViewClickedListener { _, _, _, _ ->  }
 	}
 

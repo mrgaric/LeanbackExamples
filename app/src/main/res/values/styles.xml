@@ -4,6 +4,7 @@
 
     <style name="ImageCardViewStyle" parent="Widget.Leanback.ImageCardViewStyle">
         <item name="lbImageCardViewType">IconOnLeft|Title|Content</item>
+        <item name="infoAreaBackground">@drawable/info_selector</item>
     </style>
     <style name="ImageCardTheme" parent="Theme.Leanback">
         <item name="imageCardViewStyle">@style/ImageCardViewStyle</item>
