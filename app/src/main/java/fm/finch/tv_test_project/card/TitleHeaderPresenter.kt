@@ -1,4 +1,4 @@
-package fm.finch.tv_test_project.view
+package fm.finch.tv_test_project.card
 
 import android.support.v17.leanback.widget.Presenter
 import android.support.v17.leanback.widget.RowHeaderPresenter

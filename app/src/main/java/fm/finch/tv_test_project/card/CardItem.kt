@@ -1,4 +1,4 @@
-package fm.finch.tv_test_project.view
+package fm.finch.tv_test_project.card
 
 import android.support.annotation.DrawableRes
 

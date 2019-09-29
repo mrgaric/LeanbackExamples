@@ -1,4 +1,4 @@
-package fm.finch.tv_test_project.view
+package fm.finch.tv_test_project.card
 
 import android.support.v17.leanback.widget.Presenter
 import android.view.ViewGroup
@@ -20,6 +20,7 @@ class CardPresenter : Presenter() {
 							context.getDimensionPixelSizeRes(R.dimen.card_width),
 							context.getDimensionPixelSizeRes(R.dimen.card_height)
 						)
+
 					}
 			}
 
@@ -32,8 +33,8 @@ class CardPresenter : Presenter() {
 			.unbind()
 
 	private inner class ViewHolder(view: CardView) : Presenter.ViewHolder(view) {
-		fun bind(menuItem: CardItem) =
-			(view as CardView).bind(menuItem)
+		fun bind(item: CardItem) =
+			(view as CardView).bind(item)
 
 		fun unbind() =
 			(view as CardView).unbind()
