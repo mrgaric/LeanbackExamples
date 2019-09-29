@@ -1,23 +1,26 @@
 package fm.finch.tv_test_project.view
 
 import android.support.v17.leanback.widget.Presenter
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
 import fm.finch.tv_test_project.R
-import kotlinx.android.synthetic.main.item_card.view.*
+import fm.finch.tv_test_project.extensions.getDimensionPixelSizeRes
 
 class CardPresenter : Presenter() {
+
 	override fun onCreateViewHolder(viewGroup: ViewGroup): Presenter.ViewHolder =
 		ViewHolder(createView(viewGroup))
 
 	private fun createView(viewGroup: ViewGroup) =
-		LayoutInflater.from(viewGroup.context).inflate(R.layout.item_card, viewGroup, false)
-			.apply {
-				isFocusable = true
-				isFocusableInTouchMode = true
+		viewGroup
+			.context
+			.let { context ->
+				CardView(context)
+					.apply {
+						layoutParams = ViewGroup.LayoutParams(
+							context.getDimensionPixelSizeRes(R.dimen.card_width),
+							context.getDimensionPixelSizeRes(R.dimen.card_height)
+						)
+					}
 			}
 
 	override fun onBindViewHolder(viewHolder: Presenter.ViewHolder, item: Any) =
@@ -28,22 +31,13 @@ class CardPresenter : Presenter() {
 		(viewHolder as ViewHolder)
 			.unbind()
 
-	private inner class ViewHolder(view: View) : Presenter.ViewHolder(view) {
+	private inner class ViewHolder(view: CardView) : Presenter.ViewHolder(view) {
+		fun bind(menuItem: CardItem) =
+			(view as CardView).bind(menuItem)
 
-		private var requestManager: RequestManager? = null
+		fun unbind() =
+			(view as CardView).unbind()
 
-		fun bind(menuItem: CardItem) = with(view) {
-			menuItem.run {
-				requestManager = Glide.with(vImage)
-				requestManager?.load(image)?.into(vImage)
-				vTitle.text = title
-			}
-		}
-
-		fun unbind() = with(view) {
-			requestManager?.clear(vImage)
-			vImage.setImageDrawable(null)
-			vTitle.text = ""
-		}
 	}
+
 }

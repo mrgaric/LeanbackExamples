@@ -26,6 +26,8 @@ class MainFragment : RowsSupportFragment() {
 
 		adapter = outerAdapter
 
+		setOnItemViewClickedListener { _, _, _, _ ->  }
+
 	}
 
 	private fun getOuterPresenter() =

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="320dp"
-    android:layout_height="180dp"
-    android:orientation="vertical">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/card_width"
+    android:layout_height="@dimen/card_height"
+    android:orientation="vertical"
+    tools:parentTag="android.widget.FrameLayout">
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/vImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/vTitle"
@@ -21,4 +23,12 @@
         android:layout_marginTop="16dp"
         android:textSize="20sp" />
 
-</FrameLayout>
+    <View
+        android:id="@+id/vSelector"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:background="@android:color/white"/>
+
+</merge>
