@@ -1,12 +1,13 @@
 package fm.finch.tv_test_project
 
 import android.os.Bundle
-import android.support.v17.leanback.app.BrowseSupportFragment
-import android.support.v17.leanback.widget.SearchOrbView
-import android.support.v4.content.ContextCompat
-import fm.finch.tv_test_project.extensions.getColorRes
+import android.support.v17.leanback.app.RowsSupportFragment
+import android.support.v17.leanback.widget.*
+import fm.finch.tv_test_project.view.CardItem
+import fm.finch.tv_test_project.view.CardPresenter
+import fm.finch.tv_test_project.view.TitleHeaderPresenter
 
-class MainFragment : BrowseSupportFragment() {
+class MainFragment : RowsSupportFragment() {
 
 	override fun onActivityCreated(savedInstanceState: Bundle?) {
 		super.onActivityCreated(savedInstanceState)
@@ -14,24 +15,33 @@ class MainFragment : BrowseSupportFragment() {
 	}
 
 	private fun initView(savedInstanceState: Bundle?) {
-		context?.let { context ->
-			title = "FinchFinchFinchFinchFinchFinchFinchFinchFinch"
-			badgeDrawable = ContextCompat.getDrawable(context, R.drawable.app_icon_your_company)
-			searchAffordanceColor = context.getColorRes(R.color.search_opaque)
-			searchAffordanceColors = SearchOrbView.Colors(
-				context.getColorRes(R.color.search_opaque),
-				context.getColorRes(R.color.search_opaque_bright),
-				context.getColorRes(R.color.search_opaque_icon)
-			)
-		}
 
+		val outerAdapter = ArrayObjectAdapter(getOuterPresenter())
+		val cardAdapter = ArrayObjectAdapter(CardPresenter())
 
-		setOnSearchClickedListener {
+		val header = HeaderItem("Finch")
+		cardAdapter.addAll(0, getItems())
 
-		}
+		outerAdapter.add(ListRow(header, cardAdapter))
+
+		adapter = outerAdapter
 
 	}
 
+	private fun getOuterPresenter() =
+		ListRowPresenter()
+			.apply {
+				headerPresenter = TitleHeaderPresenter(40f,100)
+			}
 
+	private fun getItems(): List<CardItem> =
+			listOf(
+				CardItem("title 1", R.drawable.image1),
+				CardItem("title 2", R.drawable.image2),
+				CardItem("title 3", R.drawable.image3),
+				CardItem("title 4", R.drawable.image4),
+				CardItem("title 5", R.drawable.image5),
+				CardItem("title 6", R.drawable.image6)
+			)
 
 }
